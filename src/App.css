@@ -1,0 +1,77 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #ff7f50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container > .header,
+.container > .menu {
+  padding: 0 4rem;
+}
+
+.header {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.header .title {
+  font-size: clamp(5rem, 12vw, 60rem);
+  font-weight: bold;
+  width: 100%;
+  cursor: pointer;
+}
+
+.header .title > a:hover {
+  opacity: 0.8;
+}
+
+
+.contents {
+  flex: 2;
+}
+
+.menu {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: end;
+  width: 100%;
+  font-size: clamp(3rem, 10vw, 40rem);
+  font-weight: bold;
+  overflow: hidden;
+}
+
+.menu > .info, 
+.menu > .list {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.menu > .info > a:hover, 
+.menu > .list > a:hover {
+  opacity: 0.8;
+}
+
+.info {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.list {
+  justify-content: flex-end;
+  align-items: center;
+}
+
+
