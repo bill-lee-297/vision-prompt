@@ -1,4 +1,5 @@
 import './App.css'
+import ImageSlider from './components/ImageSlider';
 
 function App() {
   return (
@@ -9,9 +10,7 @@ function App() {
         </div>
       </div>
       <div className="contents">
-        <div className='image-slider'>
-
-        </div>
+        <ImageSlider />
       </div>
       <div className='menu'>
         <div className="info">

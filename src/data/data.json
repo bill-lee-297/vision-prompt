@@ -1,0 +1,29 @@
+{
+  "images": [
+    {
+      "id": 1,
+      "file": "1.png",
+      "prompt": "This vibrant digital illustration captures a girl sitting atop a towering stack of books, absorbed in her reading. Bathed in the soft glow of the book, she smiles contentedly while the deep blues and warm oranges of the starry night sky provide a dreamy backdrop, with rolling hills at the base of the stack completing the peaceful scene."
+    },
+    {
+      "id": 2,
+      "file": "2.png",
+      "prompt": "This digital artwork portrays a dreamlike scene with a massive human profile along with a glowing lightbulb embedded in its forehead, radiating golden hues amid swirling blues, reds, and purples. To the left, a winding path meanders through vibrant hills towards a fiery sun, with a distant cityscape faintly visible, while the entire image blends bold brushstrokes and harmonious colors to create a surreal and balanced composition."
+    },
+    {
+      "id": 3,
+      "file": "3.png",
+      "prompt": "This digital artwork features a quirky, lightbulb-inspired creature with a cartoonish flair. Its rounded body, glowing in warm yellow tones accented by orange speckles, is paired with oversized eyes and a friendly, crescent-shaped smile, while tiny antennae sprout from its head. The character stands on a textured, vintage gradient background, with a smooth, retro-inspired illustration style enhanced by vivid orange light rays."
+    },
+    {
+      "id": 4,
+      "file": "4.png",
+      "prompt": "The stylish illustration for a fashion magazine cover titled 'STYLE' showcases a young Black woman with deep brown skin and striking features, framed by bold, cream-colored font spelling 'STYLE' at the top. With her confident gaze, defined makeup, and elegant outfit, she's adorned with a burnt-orange hat, large gold hoop earrings, and a teal blazer, set against a vibrant, geometric backdrop of warm hues."
+    },
+    {
+      "id": 5,
+      "file": "5.png",
+      "prompt": "This captivating illustration combines traditional acrylic or gouache techniques on canvas or board to depict a massive human eye embedded in a cosmic setting. The swirling galaxy iris, featuring gradients of deep blues to fiery oranges, is framed by a bold, black pupil, while surrounding planets, a retro rocket, and vibrant cloud formations celebrate a retro-futuristic space aesthetic."
+    }
+  ]
+}
