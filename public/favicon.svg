@@ -1,0 +1,7 @@
+<svg width="32" height="32" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <!-- Bold V Shape -->
+  <path d="M30 30 L70 110 L110 30" stroke="#00B4D8" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Center Dot for Prompt spark -->
+  <circle cx="70" cy="28" r="7" fill="#03045E"/>
+</svg>
