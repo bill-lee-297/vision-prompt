@@ -24,6 +24,7 @@
 }
 
 .header .title {
+  color: #111;
   font-size: clamp(5rem, 12vw, 60rem);
   font-weight: bold;
   width: 100%;
@@ -52,6 +53,7 @@
   width: 100%;
   font-size: clamp(3rem, 10vw, 40rem);
   font-weight: bold;
+  color: #111;
   overflow: hidden;
 }
 

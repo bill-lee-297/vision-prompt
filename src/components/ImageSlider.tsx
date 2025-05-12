@@ -1,8 +1,8 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { gsap } from 'gsap';
+import React, { useRef, useLayoutEffect, useState } from 'react';
 import './ImageSlider.css';
 import ColorThief from 'colorthief';
-import useThemeStore from '../store/useThemeStore';
+import useThemeStore from '@/store/useThemeStore';
+import { brightenColor } from '@/utils/colors';
 
 const images = [
   '/src/assets/1.png',
@@ -17,14 +17,15 @@ const ImageSlider: React.FC = () => {
   const imgRef = useRef<HTMLImageElement>(null);
   const setBgColor = useThemeStore((state) => state.setBgColor);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const img = imgRef.current;
     const colorThief = new ColorThief();
     
     const handleLoad = () => {
       const [r, g, b] = colorThief.getColor(img);
-      const rgb = `rgb(${r}, ${g}, ${b})`;
-      setBgColor(rgb);
+      const [newR, newG, newB] = brightenColor([r, g, b]);
+      
+      setBgColor(`rgb(${newR}, ${newG}, ${newB})`);
     };
 
     if(img?.complete) {
