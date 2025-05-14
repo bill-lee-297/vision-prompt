@@ -5,6 +5,10 @@ import useThemeStore from './store/useThemeStore';
 function App() {
   const bgColor = useThemeStore((state) => state.bgColor);
 
+  // TODO: 타이틀 애니메이션 추가
+
+  // TODO: 메뉴 애니메이션 추가
+
   return (
     <div className="container" style={{ backgroundColor: bgColor }}>
       <div className="header">
