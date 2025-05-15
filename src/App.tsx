@@ -1,18 +1,44 @@
 import './App.css'
+import { useLayoutEffect, useRef } from 'react';
 import ImageSlider from './components/ImageSlider';
 import useThemeStore from './store/useThemeStore';
+import gsap from 'gsap';
 
 function App() {
   const bgColor = useThemeStore((state) => state.bgColor);
 
-  // TODO: 타이틀 애니메이션 추가
+  const titleRef = useRef<HTMLDivElement>(null);
+  const menuInfoRef = useRef<HTMLDivElement>(null);
+  const menuListRef = useRef<HTMLDivElement>(null);
 
-  // TODO: 메뉴 애니메이션 추가
+  useLayoutEffect(() => {
+    const textTl = gsap.timeline();
+
+    textTl.to(titleRef.current, {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: "power5.out",
+    })
+    textTl.to(menuInfoRef.current, {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: "power5.out",
+    }, "-=0.5")
+
+    textTl.to(menuListRef.current, {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: "power5.out",
+    }, "<")
+  }, []);
 
   return (
     <div className="container" style={{ backgroundColor: bgColor }}>
       <div className="header">
-        <div className="title">
+        <div className="title" ref={titleRef}>
           <a href="/">Vision Prompt</a>
         </div>
       </div>
@@ -20,10 +46,10 @@ function App() {
         <ImageSlider />
       </div>
       <div className='menu'>
-        <div className="info">
+        <div className="info" ref={menuInfoRef}>
           <a href="/info">INFO</a>
         </div>
-        <div className="list">
+        <div className="list" ref={menuListRef}>
           <a href="/list">LIST</a>
         </div>
       </div>
