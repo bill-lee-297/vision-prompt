@@ -1,0 +1,17 @@
+.header {
+  
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.title a {
+  color: #111;
+  text-decoration: none;
+}
+
+.title a:hover {
+  color: #222;
+} 

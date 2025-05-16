@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
-import './ImageSlider.css';
+import React, { useState, useLayoutEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import styles from './style.module.css';
 import ColorThief from 'colorthief';
 import useThemeStore from '@/store/useThemeStore';
 import { brightenColor } from '@/utils/colors';
@@ -19,6 +20,7 @@ const ImageSlider: React.FC = () => {
   const [current, setCurrent] = useState(1);
   const containerRef = useRef<HTMLDivElement>(null);
   const setBgColor = useThemeStore((state) => state.setBgColor);
+  const navigate = useNavigate();
 
   const setAnimating = (value: boolean) => {
     containerRef.current?.querySelectorAll('img').forEach(img => {
@@ -26,7 +28,7 @@ const ImageSlider: React.FC = () => {
     });
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const img = containerRef.current?.querySelector(`[data-idx="${current}"]`) as HTMLImageElement | null;
 
     if (!img) return;
@@ -135,24 +137,28 @@ const ImageSlider: React.FC = () => {
     }
   };
 
+  const handleImageClick = (index: number) => {
+    navigate(`/image/${index}`);
+  };
 
   return (
-    <div className="image-slider">
-      <button onClick={onClickPrev} className="prev-button" aria-label="Previous image"></button>
-      <div className="image-slider-container" ref={containerRef}>
+    <div className={styles['image-slider']}>
+      <button onClick={onClickPrev} className={styles['prev-button']} aria-label="Previous image"></button>
+      <div className={styles['image-slider-container']} ref={containerRef}>
         {images.map((image, index) => (
           <img
+            key={index}
             data-idx={index}
             src={`/src/assets/${image.file}`}
             alt="slider"
             style={{ left: getImageLeft(index) }}
-            onClick={() => setCurrent(index)}
+            onClick={() => handleImageClick(index)}
             onMouseEnter={() => handleHover()}
             onMouseLeave={() => handleLeaveHover()}
           />
         ))}
       </div>
-      <button onClick={onClickNext} className="next-button" aria-label="Next image"></button>
+      <button onClick={onClickNext} className={styles['next-button']} aria-label="Next image"></button>
     </div>
   );
 };

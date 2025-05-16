@@ -40,7 +40,6 @@
   opacity: 0.8;
 }
 
-
 .contents {
   flex: 2;
   width: 100%;
@@ -84,6 +83,4 @@
 .list {
   justify-content: flex-end;
   align-items: center;
-}
-
-
+} 

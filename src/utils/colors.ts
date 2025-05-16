@@ -22,7 +22,8 @@ const brightenColor = (rgb: colorThiefRGB) => {
 
   const [r, g, b] = rgb;
   return Color(`rgb(${r}, ${g}, ${b})`)
-    .lighten(0.6)
+    .lighten(0.4)
+    .saturate(0.1)
     .rgb()
     .array();
 };
