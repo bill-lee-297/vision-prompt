@@ -1,54 +1,65 @@
-# React + TypeScript + Vite
+# Vision Prompt
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Vision Prompt는 AI로 생성된 이미지와 그에 대한 프롬프트를 보여주는 웹 애플리케이션입니다. 사용자들은 다양한 AI 생성 이미지를 탐색하고, 각 이미지에 대한 상세한 프롬프트 정보를 확인할 수 있습니다.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 기술 스택
 
-## Expanding the ESLint configuration
+- **프론트엔드**
+  - React 19
+  - TypeScript
+  - Vite
+  - React Router DOM
+  - GSAP
+  - Color Thief (이미지 색상 분석)
+  - Zustand
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 시작하기
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### 필수 조건
+
+- Node.js (최신 LTS 버전 권장)
+- npm 또는 yarn
+
+### 설치
+
+```bash
+# 저장소 클론
+git clone [repository-url]
+
+# 프로젝트 디렉토리로 이동
+cd vision-prompt
+
+# 의존성 설치
+npm install
+# 또는
+yarn install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 개발 서버 실행
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+npm run dev
+# 또는
+yarn dev
+```
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+### 빌드
+
+```bash
+npm run build
+# 또는
+yarn build
+```
+
+## 프로젝트 구조
+
+```
+src/
+├── components/     # 재사용 가능한 컴포넌트
+├── pages/         # 페이지 컴포넌트
+├── store/         # 상태 관리
+├── utils/         # 유틸리티 함수
+├── data/          # 정적 데이터
+└── assets/        # 이미지 및 기타 자산
 ```
