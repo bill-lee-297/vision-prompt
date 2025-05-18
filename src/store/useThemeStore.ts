@@ -5,9 +5,9 @@ interface ThemeState {
   setBgColor: (color: string) => void;
 }
 
-const useThemeStore = create<ThemeState>((set) => ({
+const useThemeStore = create<ThemeState>(set => ({
   bgColor: 'rgb(255, 255, 255)',
-  setBgColor: (color) => set({ bgColor: color }),
+  setBgColor: color => set({ bgColor: color }),
 }));
 
-export default useThemeStore; 
+export default useThemeStore;

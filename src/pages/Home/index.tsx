@@ -6,7 +6,7 @@ import gsap from 'gsap';
 import styles from './style.module.css';
 
 const Home: React.FC = () => {
-  const bgColor = useThemeStore((state) => state.bgColor);
+  const bgColor = useThemeStore(state => state.bgColor);
   const titleRef = useRef<HTMLDivElement>(null);
   const menuInfoRef = useRef<HTMLDivElement>(null);
   const menuListRef = useRef<HTMLDivElement>(null);
@@ -18,25 +18,33 @@ const Home: React.FC = () => {
       y: 0,
       opacity: 1,
       duration: 1,
-      ease: "power5.out",
-    })
-    textTl.to(menuInfoRef.current, {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-      ease: "power5.out",
-    }, "-=0.5")
+      ease: 'power5.out',
+    });
+    textTl.to(
+      menuInfoRef.current,
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power5.out',
+      },
+      '-=0.5'
+    );
 
-    textTl.to(menuListRef.current, {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-      ease: "power5.out",
-    }, "<")
+    textTl.to(
+      menuListRef.current,
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power5.out',
+      },
+      '<'
+    );
 
     return () => {
       textTl.kill();
-    }
+    };
   }, []);
 
   return (

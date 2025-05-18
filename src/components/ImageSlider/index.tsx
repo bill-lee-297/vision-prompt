@@ -14,12 +14,12 @@ const imageMargin = 1;
 const imageLeft = 10;
 const transitionLeft = imageWidth + imageMargin;
 
-const getImageLeft = (index: number) => index === 0 ? `${-imageLeft}vw` : `${(index * imageWidth - imageLeft)+index*imageMargin}vw`;
+const getImageLeft = (index: number) => (index === 0 ? `${-imageLeft}vw` : `${index * imageWidth - imageLeft + index * imageMargin}vw`);
 
 const ImageSlider: React.FC = () => {
   const [current, setCurrent] = useState(1);
   const containerRef = useRef<HTMLDivElement>(null);
-  const setBgColor = useThemeStore((state) => state.setBgColor);
+  const setBgColor = useThemeStore(state => state.setBgColor);
   const navigate = useNavigate();
 
   const setAnimating = (value: boolean) => {
@@ -58,7 +58,7 @@ const ImageSlider: React.FC = () => {
 
     setAnimating(true);
 
-    if(container) {
+    if (container) {
       gsap.to(container?.querySelectorAll('img'), {
         duration: 1,
         left: `-=${transitionLeft}vw`,
@@ -70,7 +70,7 @@ const ImageSlider: React.FC = () => {
             container?.appendChild(firstImage);
           }
           setAnimating(false);
-        }
+        },
       });
     }
 
@@ -78,8 +78,7 @@ const ImageSlider: React.FC = () => {
       img.style.zIndex = '2';
     });
 
-
-    setCurrent((prev) => (prev + 1) % images.length);
+    setCurrent(prev => (prev + 1) % images.length);
   };
 
   const onClickPrev = () => {
@@ -90,13 +89,13 @@ const ImageSlider: React.FC = () => {
     const lastImage = container?.lastElementChild as HTMLElement | null;
 
     if (lastImage) {
-      lastImage.style.left = `-${transitionLeft+imageLeft}vw`;
+      lastImage.style.left = `-${transitionLeft + imageLeft}vw`;
       container?.insertBefore(lastImage, container.firstChild);
     }
 
     setAnimating(true);
 
-    if(container) {
+    if (container) {
       gsap.to(container?.querySelectorAll('img'), {
         duration: 1,
         left: `+=${transitionLeft}vw`,
@@ -120,8 +119,8 @@ const ImageSlider: React.FC = () => {
         duration: 0.1,
         scale: 1.3,
         zIndex: 11,
-        ease: "power4.out",
-      })
+        ease: 'power4.out',
+      });
     }
   };
 
@@ -132,8 +131,8 @@ const ImageSlider: React.FC = () => {
       gsap.to(img, {
         duration: 0.2,
         scale: 1,
-        ease: "power2.out",
-      })
+        ease: 'power2.out',
+      });
     }
   };
 
