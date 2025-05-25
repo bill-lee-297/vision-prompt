@@ -5,7 +5,10 @@ import styles from './style.module.css';
 import Header from '@/components/Header';
 import ColorThief from 'colorthief';
 import { brightenColor } from '@/utils/colors';
-import { FaDownload, FaShare } from 'react-icons/fa';
+import { FaDownload, FaShare, FaCopy } from 'react-icons/fa';
+import { ToastContainer } from 'react-toastify';
+import { showToast } from '@/utils/toast';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ImageDetail: React.FC = () => {
   const { id } = useParams();
@@ -43,19 +46,28 @@ const ImageDetail: React.FC = () => {
           <p>{image.author}</p>
 
           <div className={styles.imageActionsWrapper}>
-            <div className={styles.imageAction}>
+            <div className={styles.iconBtn}>
               <FaDownload /> <span>Download Image</span>
             </div>
-            <div className={styles.imageAction}>
+            <div className={styles.iconBtn}>
               <FaShare /> <span>Share</span>
             </div>
           </div>
         </div>
       </div>
       <div className={styles.imagePrompt}>
-        <h1>Prompt</h1>
+        <div className={styles.promptHeader}>
+          <h1>Prompt</h1>
+          <div className={styles.iconBtn} onClick={() => {
+            navigator.clipboard.writeText(image.prompt);
+            showToast('Prompt has been copied!', 'success');
+          }}>
+            <FaCopy /> <span>Copy</span>
+          </div>
+        </div>
         <p>{image.prompt}</p>
       </div>
+      <ToastContainer />
     </div>
   );
 };
